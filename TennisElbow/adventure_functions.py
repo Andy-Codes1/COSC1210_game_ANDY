@@ -3,6 +3,10 @@ import os
 import pygame
 import config
 
+
+
+
+
 def draw_room(screen, row, col):
     left = col * config.ROOM_WIDTH
     right = left + config.ROOM_WIDTH
