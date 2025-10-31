@@ -1,12 +1,12 @@
 # config.py
 
 # Grid and Room Settings
-GRID_ROWS = 3
-GRID_COLS = 3
-ROOM_WIDTH = 200
-ROOM_HEIGHT = 200
+GRID_ROWS = 8
+GRID_COLS = 8
+ROOM_WIDTH = 70
+ROOM_HEIGHT = 70
 WALL_THICK = 4
-DOOR_SIZE = 40
+DOOR_SIZE = 0
 
 # Player Settings
 PLAYER_RADIUS = 10
@@ -26,6 +26,6 @@ BOX_COLOR = (225,153,100)
 FPS = 60
 
 # --- Player appearance ---
-PLAYER_IMAGE_PATH = "./goose.png"  # transparent PNG, e.g. 48x48
-PLAYER_IMAGE_SIZE = (48, 48)             # w, h in pixels
+PLAYER_IMAGE_PATH = "./bomb.png"  # transparent PNG, e.g. 48x48
+PLAYER_IMAGE_SIZE = (74, 74)             # w, h in pixels
 PLAYER_RADIUS = 24                       # half of width; used by your collision

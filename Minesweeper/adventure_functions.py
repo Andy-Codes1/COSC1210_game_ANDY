@@ -114,6 +114,37 @@ def draw_player(screen, x, y):
         pygame.draw.circle(screen, config.PLAYER_COLOR, (int(x), int(y)), config.PLAYER_RADIUS)
         pygame.draw.circle(screen, (0, 0, 0), (int(x), int(y)), config.PLAYER_RADIUS, 2)
 
+# --- Mines / bombs helpers ---
+import random
+
+
+def get_cell_for_coords(x, y):
+    """Return (row, col) for pixel coordinates (x, y), clamped to grid."""
+    col = int(x // config.ROOM_WIDTH)
+    row = int(y // config.ROOM_HEIGHT)
+    col = max(0, min(config.GRID_COLS - 1, col))
+    row = max(0, min(config.GRID_ROWS - 1, row))
+    return row, col
+
+
+def place_mines(num_mines=10, rows=None, cols=None):
+    """Return a set of (row, col) tuples with randomly placed mines.
+
+    - If num_mines >= total cells, all cells become mines.
+    - Uses random.sample for non-overlapping placement.
+    """
+    if rows is None:
+        rows = config.GRID_ROWS
+    if cols is None:
+        cols = config.GRID_COLS
+
+    total = rows * cols
+    num = max(0, min(num_mines, total))
+
+    all_cells = [(r, c) for r in range(rows) for c in range(cols)]
+    chosen = set(random.sample(all_cells, num)) if num > 0 else set()
+    return
+
 # copy and paste this code to the end of the adventure_functions.py file
 # add show_game_over to the list of imported functions
 # add show_game_over(screen) as part of the sentinel control
@@ -142,3 +173,27 @@ def show_game_over(screen):
         for event in pygame.event.get():
             if event.type == pygame.QUIT or event.type == pygame.KEYDOWN:
                 waiting = False
+
+# Tile Types for 2D board
+# "B" = Bomb
+# "E" = Empty Square
+# "C" = Clue Square
+# "X" = Unknown Square
+class Tile: 
+    # so basically I am making a class for Tiles, x coordinate, y cordinate, and the type as parameter. I'm making revealed and flagged as false because they are not true yet
+    def __init__(self, x, y, image, type, revealed=False, flagged=False):
+        #now I am setting self.x and y to a box which is why it's 70/8 multiplied by the x value 
+        self.x = x * (70 / 8)
+        self.y = y * (70 / 8)
+        self.image = image
+        self.type = type
+        self.revealed = revealed 
+        self.flagged = flagged
+    
+    def square(self, board_surface):
+        if not self.flagged and self.revealed:
+            board_surface.blit(self.image, (self.x, self.y)) #in Pygame the code blit puts something ontop of another thing, x,y are used for the squares to put image above the square
+        elif self.flagged and not self.revealed: 
+            board_surface.blit(self.flagged, (self.x, self.y))
+        elif not self.revealed:
+            board_surface.blit(self.unknown, (self.x, self.y))
