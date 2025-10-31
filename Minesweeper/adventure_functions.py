@@ -197,3 +197,15 @@ class Tile:
             board_surface.blit(self.flagged, (self.x, self.y))
         elif not self.revealed:
             board_surface.blit(self.unknown, (self.x, self.y))
+
+
+#def mine_location_dictionary(Total_bombs):
+ #   Location_Bombs = {}
+ #   for ix in GRID_ROWS:
+ #       for iy in GRID_COLS:
+ #           if Bombs.type == "B":
+  #              Location_Bombs.append(ix, iy)
+ #   print(Location_Bombs)
+    #To see a 2D model of all bombs and their locations. 
+                
+        
