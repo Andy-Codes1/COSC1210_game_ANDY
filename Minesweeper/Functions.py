@@ -1,7 +1,7 @@
 # adventure_functions.py
 import os
 import pygame
-import config
+import Settings as config
 
 
 
