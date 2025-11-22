@@ -26,6 +26,6 @@ BOX_COLOR = (225,153,100)
 FPS = 60
 
 # --- Player appearance ---
-PLAYER_IMAGE_PATH = "./bomb.png"  # transparent PNG, e.g. 48x48
+PLAYER_IMAGE_PATH = "Assets/bomb.png"  # transparent PNG, e.g. 48x48
 PLAYER_IMAGE_SIZE = (74, 74)             # w, h in pixels
 PLAYER_RADIUS = 24                       # half of width; used by your collision
