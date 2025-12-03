@@ -1,8 +1,6 @@
-# adventure_functions.py
-import os
+
 import pygame
 import Settings as config
-
 
 
 def show_game_over(screen):

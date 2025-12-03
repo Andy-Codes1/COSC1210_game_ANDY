@@ -24,9 +24,9 @@ class Tile:
         if not self.flagged and self.revealed:
             board_surface.blit(self.image, (self.x, self.y)) #in Pygame the code blit puts something ontop of another thing, x,y are used for the squares to put image above the square
         elif self.flagged and not self.revealed: 
-            board_surface.blit(self.flagged, (self.x, self.y))
+            board_surface.blit(tile_flagged, (self.x, self.y))
         elif not self.revealed:
-            board_surface.blit(self.unknown, (self.x, self.y))
+            board_surface.blit(tile_unknown, (self.x, self.y))
 
 def __repr__(self):
     return self.type
@@ -34,7 +34,7 @@ def __repr__(self):
 class Board:
     def __init__(self):
         self.board_surface = pygame.Surface((WIDTH, HEIGHT))
-        self.board_list = [[Tile(GRID_COLS, GRID_ROWS, tile_empty, "X") for row in range(GRID_ROWS)] for col in range(GRID_COLS)]
+        self.board_list = [[Tile(col, row, tile_empty, "X") for row in range(GRID_ROWS)] for col in range(GRID_COLS)]
         self.place_mines()
         self.place_clues()
         self.dug = []
@@ -43,8 +43,10 @@ class Board:
             while True:
                 x = random.randint(0, GRID_ROWS-1)
                 y = random.randint(0, GRID_COLS-1)
-                if self.board_list[x][y].type == "x":
+                if self.board_list[x][y].type == "X":
                     self.board_list[x][y].image = tile_mine 
+                    self.board_list[x][y].type = "B"
+                    break
     
     def place_clues(self):
         for x in range(GRID_ROWS):
@@ -76,11 +78,11 @@ class Board:
     def draw(self, screen):
         for row in self.board_list:
             for tile in row:
-                tile.draw(self.board_surface)
+                tile.square(self.board_surface)
         screen.blit(self.board_surface, (0,0))
     def dig(self, x, y):
         self.dug.append((x, y))
-        if self.board_list[x][y].type == "X":
+        if self.board_list[x][y].type == "B":
             self.board_list[x][y].revealed = True
             self.board_list[x][y].image = tile_exploded
             return False
