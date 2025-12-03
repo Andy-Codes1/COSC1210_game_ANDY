@@ -15,9 +15,8 @@ This project is a Python/Pygame recreation of the classic Minesweeper game. The 
 ## Controls
 - **Left Click** — Reveal a tile  
 - **Right Click** — Flag or unflag a tile  
-- **R** — Restart the game  
 - **ESC** — Quit  
-#Task hasn't been executed yet
+
 
 ## Files and Folders
 
@@ -40,7 +39,8 @@ VO_ANDY/
 │   ├── tile_empty.png
 │   ├── tile_flag.png
 │   ├── tile_mine.png
-│   ├── tile_numbers.png (or separate number images)
-│   └── music.mp3 (if included)
+│   ├── tile_flagged.png
+│   └── Clue1.png
+|  
 ├── README.md
 └── (auto-generated) __pycache__/, .gitattributes, workspace files, etc.
