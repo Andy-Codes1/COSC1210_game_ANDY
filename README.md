@@ -36,11 +36,25 @@ VO_ANDY/
 │   ├── game_custom_classes.py
 │   └── game_configurations.py
 ├── Assets/
-│   ├── tile_empty.png
-│   ├── tile_flag.png
-│   ├── tile_mine.png
-│   ├── tile_flagged.png
-│   └── Clue1.png
+│   ├── bomb.png
+│   ├── Brick1.png
+│   ├── Brick2.png
+│   ├── Brick3.png
+│   ├── Clue1.png
+│   ├── Clue2.png
+│   ├── Clue3.png
+│   ├── Clue4.png
+│   ├── Clue5.png
+│   ├── Clue6.png
+│   ├── Clue7.png
+│   ├── Clue8.png
+│   ├── Clue9.png
+│   ├── Clue10.png
+│   ├── flagged.png
+│   ├── tile_5.png
+│   ├── tile_6.png
+│   ├── tile_7.png
+│   └── tile_38.png
 |  
 ├── README.md
 └── (auto-generated) __pycache__/, .gitattributes, workspace files, etc.
