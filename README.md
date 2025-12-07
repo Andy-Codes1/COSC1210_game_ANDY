@@ -5,6 +5,10 @@ COSC 1210 Fall 2025
 ## Description
 This project is a Python/Pygame recreation of the classic Minesweeper game. The player selects tiles on a grid to reveal numbers that indicate how many mines are adjacent. The goal is to clear the entire board without clicking on a mine.
 
+## How to Play the Game
+1. Left Click on Squares believed to not the bomb
+2. Right Click on Squares believed to be the bomb and they will be Flagged
+
 ## How to Run the Game
 1. Make sure you have **Python 3.18** and **Pygame** installed.
 2. Open the folder `/Minesweeper_Current/`.
@@ -15,7 +19,8 @@ This project is a Python/Pygame recreation of the classic Minesweeper game. The 
 ## Controls
 - **Left Click** — Reveal a tile  
 - **Right Click** — Flag or unflag a tile  
-- **ESC** — Quit  
+- **ESC** — Quit
+- **R** - Restart Game
 
 
 ## Files and Folders
@@ -30,11 +35,10 @@ VO_ANDY/
 │   ├── 2025-10-15_old.py
 │   └── 2025-10-15_old.config
 ├── Minesweeper_Current/
-│   ├── your_game.ipynb
-│   ├── game_functions.py
-│   ├── optional_additional_game_functions.py
-│   ├── game_custom_classes.py
-│   └── game_configurations.py
+│   ├── MainGameLoop.ipynb
+│   ├── Functions.py
+│   ├── Classes.py
+│   └── Settings.py
 ├── Assets/
 │   ├── bomb.png
 │   ├── Brick1.png
