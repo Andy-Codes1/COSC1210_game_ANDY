@@ -4,6 +4,7 @@ import Settings as config
 
 
 def show_game_over(screen):
+
     """Draw a Game Over box in the center of the screen."""
     font = pygame.font.Font(None, 72)  # default font, large size
     text = font.render("GAME OVER", True, (255, 255, 255))
@@ -29,5 +30,5 @@ def show_game_over(screen):
             if event.type == pygame.QUIT or event.type == pygame.KEYDOWN:
                 waiting = False
 
-                
+
         

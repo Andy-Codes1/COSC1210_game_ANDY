@@ -28,21 +28,21 @@ class Tile:
         elif not self.revealed:
             board_surface.blit(tile_unknown, (self.x, self.y))
 
-def __repr__(self):
+def __repr__(self): #dunder method, for why the list response with a developer output list in main game loop
     return self.type
 
 class Board:
-    def __init__(self):
+    def __init__(self): #board doesn't need any instance variables
         self.board_surface = pygame.Surface((WIDTH, HEIGHT))
-        self.board_list = [[Tile(col, row, tile_empty, "X") for row in range(GRID_ROWS)] for col in range(GRID_COLS)]
+        self.board_list = [[Tile(col, row, tile_empty, "X") for row in range(GRID_ROWS)] for col in range(GRID_COLS)] #creates board list
         self.place_mines()
         self.place_clues()
-        self.dug = []
+        self.dug = [] 
     def place_mines(self):
         for i in range(MINES):
             while True:
                 x = random.randint(0, GRID_ROWS-1)
-                y = random.randint(0, GRID_COLS-1)
+                y = random.randint(0, GRID_COLS-1) #select a random tile and put a bomb there
                 if self.board_list[x][y].type == "X":
                     self.board_list[x][y].image = tile_mine 
                     self.board_list[x][y].type = "B"
@@ -57,7 +57,7 @@ class Board:
                         self.board_list[x][y].image = tile_numbers[MINES-1]
                         self.board_list[x][y].type = "C"
 
-    @staticmethod
+    @staticmethod #static methods are associated with a class, but don't do anything in it, its just for organization, this function here sees if x and y is inside the map
     def inside(x,y):
         return 0 <= x < GRID_ROWS and 0 <= y < GRID_COLS
     
